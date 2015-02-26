@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name="listViewActivity"></activity>
+        <activity android:name="EditActivity"></activity>
     </application>
 
 </manifest>

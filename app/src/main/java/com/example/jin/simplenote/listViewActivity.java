@@ -50,10 +50,9 @@ public class listViewActivity extends Activity {
                                            int position, long id) {
                 final Info i = mInfo.get(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(listViewActivity.this);
-                builder.setTitle("Delete");
-                builder.setMessage("Delete The Note?");
+                builder.setTitle("");;
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mDb.deleteInfo(i.getId());
@@ -61,7 +60,20 @@ public class listViewActivity extends Activity {
                     }
                 });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Edit", new DialogInterface.OnClickListener() {
+                   @Override
+                public void onClick(DialogInterface dialog, int which) {
+                       Intent intent1 = new Intent(listViewActivity.this, EditActivity.class);
+                       intent1.putExtra("edit1",i.getMeeting());
+                       intent1.putExtra("edit2",i.getTime());
+                       listViewActivity.this.startActivityForResult(intent1, 0);
+                       mDb.deleteInfo(i.getId());
+                       refreshList();
+
+                   }
+                });
+
+                builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     ;
@@ -75,6 +87,16 @@ public class listViewActivity extends Activity {
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        mDb.insertInfo(data.getStringExtra("edit1").toString(), data.getStringExtra("edit2").toString());
+        refreshList();
+
+            }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 0, "Delete All");
