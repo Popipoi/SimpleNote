@@ -104,10 +104,24 @@ public class listViewActivity extends Activity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        mDb.deleteAll();
-        refreshList();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+        .setTitle("Erase hard drive")
+        .setMessage("Are you sure?")
+        .setIcon(android.R.drawable.ic_dialog_alert)
+        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                mDb.deleteAll();
+                refreshList();
+            }
+        })
+        .setNegativeButton("No",null)
+        .show();
+
+
         return super.onOptionsItemSelected(item);
     }
+
 
     protected void onDestroy() {
         mDb.close();
