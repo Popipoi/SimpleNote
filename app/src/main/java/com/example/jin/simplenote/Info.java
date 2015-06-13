@@ -10,10 +10,12 @@ public class Info {
     private int id;
     private String meeting;
     private String time;
-    public Info(int id, String meeting, String time){
+    private String rate;
+    public Info(int id, String meeting, String time, String rate){
         this.id = id;
         this.meeting = meeting;
         this.time = time;
+        this.rate = rate;
     }
 
     public int getId() {
@@ -28,6 +30,8 @@ public class Info {
         return time;
     }
 
+    public String getRate() {return rate; }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -40,10 +44,14 @@ public class Info {
         this.time = time;
     }
 
+    public void setRate(String rate) {this.rate = rate; }
+
     @Override
     public String toString() {
         return
                 time + '\n' +
-                meeting + '\n';
+                "Rating: " + rate + '\n' +
+                meeting + '\n' ;
+
     }
 }

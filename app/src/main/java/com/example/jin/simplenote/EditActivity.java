@@ -3,6 +3,7 @@ package com.example.jin.simplenote;
 /**
  * Created by Jinhyeok on 2015-02-25.
  */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -11,7 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 
 //This is separate the activity for edit function which use same layout as MainActivity
@@ -23,6 +25,8 @@ public class EditActivity extends ActionBarActivity {
 
     EditText editText1;
     Button btnSave, btnMain;
+    SeekBar rateBar;
+    String rating = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class EditActivity extends ActionBarActivity {
         editText1 = (EditText) findViewById(R.id.editText);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnMain = (Button) findViewById(R.id.btnMain);
+        rateBar = (SeekBar) findViewById(R.id.seekBar);
 
         editText1.setText(intent.getStringExtra("edit1"));
 
@@ -42,7 +47,8 @@ public class EditActivity extends ActionBarActivity {
                 Intent intent1 = new Intent();
                 intent1.putExtra("edit1",editText1.getText().toString());
                 intent1.putExtra("edit2",intent.getStringExtra("edit2"));
-                setResult(RESULT_OK,intent1);
+                intent1.putExtra("edit3",rating);
+                setResult(RESULT_OK, intent1);
                 EditActivity.this.finish();
             }
         });
@@ -52,8 +58,28 @@ public class EditActivity extends ActionBarActivity {
                 Intent intent2 = new Intent ();
                 intent2.putExtra("edit1",intent.getStringExtra("edit1"));
                 intent2.putExtra("edit2",intent.getStringExtra("edit2"));
+                intent2.putExtra("edit3",intent.getStringExtra("edit3"));
                 setResult(RESULT_OK,intent2);
                 EditActivity.this.finish();
+            }
+        });
+
+        rateBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = Integer.parseInt(intent.getStringExtra("edit3"));
+
+            @Override
+            public void onProgressChanged(SeekBar rateBar, int progressValue, boolean fromUser) {
+                progress = progressValue;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar){
+
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(getApplicationContext(),"Rate: " + progress +" Recorded", Toast.LENGTH_SHORT).show();
+                rating = Integer.toString(progress);
             }
         });
     }

@@ -39,9 +39,11 @@ public class listViewActivity extends Activity {
         mAdapter = new ArrayAdapter<Info>(this, android.R.layout.simple_list_item_1, mInfo);
         listView.setAdapter(mAdapter);
 
+
+        //Below if statement is for main btn
         String x = "";
-        if(!x.equals(intent.getStringExtra("edit2").toString())){
-            mDb.insertInfo(intent.getStringExtra("edit1").toString(), intent.getStringExtra("edit2").toString());
+        if(!x.equals(intent.getStringExtra("edit2"))){
+            mDb.insertInfo(intent.getStringExtra("edit1"), intent.getStringExtra("edit2"), intent.getStringExtra("edit3"));
         }
         refreshList();
 
@@ -50,7 +52,7 @@ public class listViewActivity extends Activity {
                                            int position, long id) {
                 final Info i = mInfo.get(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(listViewActivity.this);
-                builder.setTitle("");;
+                builder.setTitle("");
 
                 builder.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
@@ -66,6 +68,7 @@ public class listViewActivity extends Activity {
                        Intent intent1 = new Intent(listViewActivity.this, EditActivity.class);
                        intent1.putExtra("edit1",i.getMeeting());
                        intent1.putExtra("edit2",i.getTime());
+                       intent1.putExtra("edit3",i.getRate());
                        listViewActivity.this.startActivityForResult(intent1, 0);
                        mDb.deleteInfo(i.getId());
                        refreshList();
@@ -88,24 +91,37 @@ public class listViewActivity extends Activity {
         });
     }
 
+    //onActivityResult function is for edit activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        mDb.insertInfo(data.getStringExtra("edit1").toString(), data.getStringExtra("edit2").toString());
+        mDb.insertInfo(data.getStringExtra("edit1"), data.getStringExtra("edit2"), data.getStringExtra("edit3"));
         refreshList();
 
             }
-
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 0, "Delete All");
         return super.onCreateOptionsMenu(menu);
     }
 
+
     public boolean onOptionsItemSelected(MenuItem item) {
-        mDb.deleteAll();
-        refreshList();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder
+                .setTitle("Erase hard drive")
+                .setMessage("Are you sure?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        mDb.deleteAll();
+                        refreshList();
+                    }
+                })
+                .setNegativeButton("No",null)
+                .show();
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -113,7 +129,6 @@ public class listViewActivity extends Activity {
         mDb.close();
         super.onDestroy();
     }
-
 
     private void refreshList() {
         mInfo.clear();
