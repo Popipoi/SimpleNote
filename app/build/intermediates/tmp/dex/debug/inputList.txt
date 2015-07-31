@@ -1,5 +1,5 @@
-/Users/sanhakim/Downloads/SimpleNote-june/app/build/intermediates/classes/debug
-/Users/sanhakim/Downloads/SimpleNote-june/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-b528f6b8df8230126cb024c41017021fcb11be5e.jar
-/Users/sanhakim/Downloads/SimpleNote-june/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-39be44d0da6d4c5762c696698bb471130c69648e.jar
-/Users/sanhakim/Downloads/SimpleNote-june/app/build/intermediates/pre-dexed/debug/classes-7ca34f0f53dfdca1cec47c8a3d5720563e896e44.jar
-/Users/sanhakim/Downloads/SimpleNote-june/app/build/intermediates/pre-dexed/debug/classes-fef5656e9bc1cb7c8974605c5f2d44a9572ed4ff.jar
+/Users/sanhakim/SimpleNote/app/build/intermediates/classes/debug
+/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-b528f6b8df8230126cb024c41017021fcb11be5e.jar
+/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-7bcbd2aa867d53cb2d04262d8883fccd0ab32e39.jar
+/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-0c84b31265b9837ddb06abe5dac0f261ab592f9e.jar
+/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-59b6d0601c563a003e2ee1bbb06f876bb1ec80be.jar

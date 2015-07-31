@@ -15,22 +15,12 @@ public class GraphActivity extends Activity {
     private ArrayList<Info> mInfo;
     private ArrayAdapter<Info> mAdapter;
 
-    GraphView graphView;
     Intent intent;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.graphview);
-        graphView=(GraphView) findViewById(R.id.graphView);
         intent=getIntent();
 
-        mDb = new DBAdapter(this);
-        mInfo = mDb.getAllInfo();
-        mAdapter = new ArrayAdapter<Info>(this, android.R.layout.simple_list_item_1, mInfo);
-        mDb = new DBAdapter(this);
-        mInfo = mDb.getAllInfo();
-        mAdapter = new ArrayAdapter<Info>(this, android.R.layout.simple_list_item_1, mInfo);
-        graphView.setAdapter(mAdapter);
     }
 
 }

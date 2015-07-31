@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="listViewActivity"></activity>
-        <activity android:name="EditActivity"></activity>
+        <activity android:name=".listViewActivity" />
+        <activity android:name=".EditActivity" />
+        <activity
+            android:name=".GraphActivity1"
+            android:label="@string/title_activity_graph_activity1" >
+        </activity>
     </application>
 
 </manifest>

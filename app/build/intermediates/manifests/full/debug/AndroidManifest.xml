@@ -24,6 +24,10 @@
         </activity>
         <activity android:name="com.example.jin.simplenote.listViewActivity" />
         <activity android:name="com.example.jin.simplenote.EditActivity" />
+        <activity
+            android:name="com.example.jin.simplenote.GraphActivity1"
+            android:label="@string/title_activity_graph_activity1" >
+        </activity>
     </application>
 
 </manifest>

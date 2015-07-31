@@ -56,6 +56,16 @@
             android:id="@+id/editText"
             android:layout_weight="0.11" />
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graph"
+            android:id="@+id/btnGraph"
+            android:layout_gravity="right" />
+
+
+
     </LinearLayout>
 </RelativeLayout>
-<!-- From: file:/Users/sanhakim/Downloads/SimpleNote-june/app/src/main/res/layout/activity_main.xml -->
+<!-- From: file:/Users/sanhakim/SimpleNote/app/src/main/res/layout/activity_main.xml -->

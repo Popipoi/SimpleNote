@@ -47,12 +47,11 @@ public class MainActivity extends ActionBarActivity {
                 startActivityForResult(intent1, 0);
             }
         });
-        btnMain.setOnClickListener(new View.OnClickListener() {
+        btnGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(MainActivity.this, GraphActivity.class);
-                startActivity(intent3);
+                startActivity(new Intent(MainActivity.this,GraphActivity1.class ));
             }
-
         });
 
         btnMain.setOnClickListener(new View.OnClickListener() {
