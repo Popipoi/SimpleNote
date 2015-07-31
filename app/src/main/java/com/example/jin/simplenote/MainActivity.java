@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -16,7 +18,9 @@ import java.util.TimeZone;
 public class MainActivity extends ActionBarActivity {
 
     EditText editText1;
-    Button btnSave, btnMain;
+    Button btnSave, btnMain, btnGraph;
+    SeekBar rateBar;
+    String rating = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,34 +29,65 @@ public class MainActivity extends ActionBarActivity {
 
 
         editText1 = (EditText) findViewById(R.id.editText);
+        btnGraph = (Button) findViewById(R.id.btnGraph);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnMain = (Button) findViewById(R.id.btnMain);
+        rateBar = (SeekBar) findViewById(R.id.seekBar);
 
-        btnSave.setOnClickListener(new View.OnClickListener(){
-           public void onClick(View v){
-               Intent intent1 = new Intent(MainActivity.this, listViewActivity.class);
-               intent1.putExtra("edit1",editText1.getText().toString());
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, listViewActivity.class);
+                intent1.putExtra("edit1", editText1.getText().toString());
 
+                Calendar cal = Calendar.getInstance(TimeZone.getDefault());
+                intent1.putExtra("edit2", cal.getTime().toLocaleString());
+                editText1.setText("");
 
-               //Need to put present time into edit2 by intent.putExtra
-
-               Calendar cal = Calendar.getInstance(TimeZone.getDefault());
-               intent1.putExtra("edit2",cal.getTime().toLocaleString());
-               startActivityForResult(intent1, 0);
-               editText1.setText("");
-           }
-        });
-
-        btnMain.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent2 = new Intent (MainActivity.this, listViewActivity.class);
-                intent2.putExtra("edit1","");
-                intent2.putExtra("edit2","");
-                MainActivity.this.startActivityForResult(intent2,0);
+                intent1.putExtra("edit3", rating);
+                startActivityForResult(intent1, 0);
             }
         });
-    }
+        btnMain.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent3 = new Intent(MainActivity.this, GraphActivity.class);
+                startActivity(intent3);
+            }
 
+        });
+
+        btnMain.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this, listViewActivity.class);
+                intent2.putExtra("edit1", "");
+                intent2.putExtra("edit2", "");
+                intent2.putExtra("edit3", "");
+                MainActivity.this.startActivityForResult(intent2, 0);
+            }
+        });
+
+
+        rateBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            int progress = 0;
+
+            @Override
+            public void onProgressChanged(SeekBar rateBar, int progressValue, boolean fromUser) {
+                progress = progressValue;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar){
+
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(getApplicationContext(),"Rate: " + progress +" Recorded", Toast.LENGTH_SHORT).show();
+                rating = Integer.toString(progress);
+            }
+
+
+        });
+     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
