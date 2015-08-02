@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="252dp"
         android:id="@+id/listView"
+        android:layout_weight="0.93" />
+
+    <Button
+        android:layout_width="217dp"
+        android:layout_height="wrap_content"
+        android:text="Graph"
+        android:id="@+id/btnGraph"
         android:layout_gravity="center_horizontal" />
-</LinearLayout><!-- From: file:/Users/sanhakim/SimpleNote/app/src/main/res/layout/listview.xml -->
+
+</LinearLayout><!-- From: file:/D:/Team%20AND/dev/Local/SimpleNote/app/src/main/res/layout/listview.xml -->

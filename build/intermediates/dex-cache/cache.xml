@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/sanhakim/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-b528f6b8df8230126cb024c41017021fcb11be5e.jar" />
-    </item>
-    <item
-        jar="/Users/sanhakim/SimpleNote/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-7bcbd2aa867d53cb2d04262d8883fccd0ab32e39.jar" />
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-f7c0a551c14e641a69aaed2ea44f2058b68c352c.jar" />
     </item>
     <item
-        jar="/Users/sanhakim/SimpleNote/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-0c84b31265b9837ddb06abe5dac0f261ab592f9e.jar" />
-    </item>
-    <item
-        jar="/Users/sanhakim/SimpleNote/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-59b6d0601c563a003e2ee1bbb06f876bb1ec80be.jar" />
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-d7c7f869451b170a5d50bc5b6b2184f26f86c211.jar" />
+    </item>
+    <item
+        jar="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-f19f7ef8cfd35a8fd0f1b46b0e809f33177c401f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jinhyeok\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-612cfe49af89cda34c4da6bc8a885bd291e20a7a.jar" />
     </item>
 
 </items>

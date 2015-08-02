@@ -1,5 +1,5 @@
-/Users/sanhakim/SimpleNote/app/build/intermediates/classes/debug
-/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-b528f6b8df8230126cb024c41017021fcb11be5e.jar
-/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-7bcbd2aa867d53cb2d04262d8883fccd0ab32e39.jar
-/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-0c84b31265b9837ddb06abe5dac0f261ab592f9e.jar
-/Users/sanhakim/SimpleNote/app/build/intermediates/pre-dexed/debug/classes-59b6d0601c563a003e2ee1bbb06f876bb1ec80be.jar
+D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\classes\debug
+D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-612cfe49af89cda34c4da6bc8a885bd291e20a7a.jar
+D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-f7c0a551c14e641a69aaed2ea44f2058b68c352c.jar
+D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-f19f7ef8cfd35a8fd0f1b46b0e809f33177c401f.jar
+D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-d7c7f869451b170a5d50bc5b6b2184f26f86c211.jar

@@ -4,4 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/Users/sanhakim/SimpleNote/app/src/main/res/menu/graph_activity1.xml -->
+<!-- From: file:/D:/Team%20AND/dev/Local/SimpleNote/app/src/main/res/menu/graph_activity1.xml -->

@@ -106,4 +106,14 @@ public class EditActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed() {
+        final Intent intent = getIntent();
+        Intent intent3 = new Intent ();
+        intent3.putExtra("edit1",intent.getStringExtra("edit1"));
+        intent3.putExtra("edit2",intent.getStringExtra("edit2"));
+        intent3.putExtra("edit3",intent.getStringExtra("edit3"));
+        setResult(RESULT_OK,intent3);
+        EditActivity.this.finish();
+    }
 }

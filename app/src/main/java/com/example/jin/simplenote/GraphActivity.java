@@ -22,5 +22,7 @@ public class GraphActivity extends Activity {
         intent=getIntent();
 
     }
-
+    public void onBackPressed() {
+        GraphActivity.this.finish();
+    }
 }

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -26,12 +27,17 @@ public class listViewActivity extends Activity {
 
     ListView listView;
     Intent intent;
+    Button btnGraph;
+
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
 
+
         listView=(ListView) findViewById(R.id.listView);
+        btnGraph = (Button) findViewById(R.id.btnGraph);
         intent=getIntent();
 
         mDb = new DBAdapter(this);
@@ -79,7 +85,7 @@ public class listViewActivity extends Activity {
                 builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                    ;
+
                     }
                 });
 
@@ -89,6 +95,14 @@ public class listViewActivity extends Activity {
 
             }
         });
+
+        btnGraph.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v){
+               Intent intent2 = new Intent(listViewActivity.this, GraphActivity.class);
+               listViewActivity.this.startActivity(intent2);
+           }
+        });
+
     }
 
     //onActivityResult function is for edit activity

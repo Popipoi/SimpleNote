@@ -18,7 +18,7 @@ import java.util.TimeZone;
 public class MainActivity extends ActionBarActivity {
 
     EditText editText1;
-    Button btnSave, btnMain, btnGraph;
+    Button btnSave, btnMain;
     SeekBar rateBar;
     String rating = "0";
 
@@ -29,7 +29,6 @@ public class MainActivity extends ActionBarActivity {
 
 
         editText1 = (EditText) findViewById(R.id.editText);
-        btnGraph = (Button) findViewById(R.id.btnGraph);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnMain = (Button) findViewById(R.id.btnMain);
         rateBar = (SeekBar) findViewById(R.id.seekBar);
@@ -45,12 +44,6 @@ public class MainActivity extends ActionBarActivity {
 
                 intent1.putExtra("edit3", rating);
                 startActivityForResult(intent1, 0);
-            }
-        });
-        btnGraph.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,GraphActivity1.class ));
             }
         });
 
