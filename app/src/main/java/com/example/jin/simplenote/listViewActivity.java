@@ -148,6 +148,6 @@ public class listViewActivity extends Activity {
         mInfo.clear();
         mInfo.addAll(mDb.getAllInfo());
         mAdapter.notifyDataSetInvalidated();
-    }
+}
 
 }

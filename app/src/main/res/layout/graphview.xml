@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Graph"
-        android:id="@+id/textView3" />
+        android:text="Your Daily Rates"
+        android:textSize="20sp"
+        android:id="@+id/textView3"
+        android:layout_weight="0.17" />
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="394dp"
+        android:id="@+id/graph"
+        android:layout_weight="0.32" />
+
+
 </LinearLayout>

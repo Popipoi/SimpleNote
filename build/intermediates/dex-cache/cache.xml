@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.0.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-bac2daecb78f9f70c8724a4afb9cf1c9f0a880b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jinhyeok\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-612cfe49af89cda34c4da6bc8a885bd291e20a7a.jar" />
+    </item>
+    <item
         jar="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -21,13 +35,6 @@
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
         <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\classes-f19f7ef8cfd35a8fd0f1b46b0e809f33177c401f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jinhyeok\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="D:\Team AND\dev\Local\SimpleNote\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-612cfe49af89cda34c4da6bc8a885bd291e20a7a.jar" />
     </item>
 
 </items>
