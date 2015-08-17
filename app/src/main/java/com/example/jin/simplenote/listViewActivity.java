@@ -75,8 +75,10 @@ public class listViewActivity extends Activity {
                        intent1.putExtra("edit1",i.getMeeting());
                        intent1.putExtra("edit2",i.getTime());
                        intent1.putExtra("edit3",i.getRate());
+                       intent1.putExtra("edit4",i.getId()); // ID is needed to update the info later
+
                        listViewActivity.this.startActivityForResult(intent1, 0);
-                       mDb.deleteInfo(i.getId());
+                       //mDb.deleteInfo(i.getId()); DO NOT DELETE; UPDATE
                        refreshList();
 
                    }
@@ -107,9 +109,13 @@ public class listViewActivity extends Activity {
 
     //onActivityResult function is for edit activity
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){ //USE INTENT INSTEAD
         super.onActivityResult(requestCode,resultCode,data);
-        mDb.insertInfo(data.getStringExtra("edit1"), data.getStringExtra("edit2"), data.getStringExtra("edit3"));
+
+        int id = data.getIntExtra("edit4",0);
+        Info i = new Info(id,data.getStringExtra("edit1"), data.getStringExtra("edit2"), data.getStringExtra("edit3"));
+        //mDb.insertInfo(data.getStringExtra("edit1"), data.getStringExtra("edit2"), data.getStringExtra("edit3"));
+        mDb.updateInfo(i);
         refreshList();
 
             }

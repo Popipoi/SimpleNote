@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -37,14 +38,46 @@ public class GraphActivity extends Activity {
 
         int dataSize = mInfo.size();
 
+
+
         //Plot Points
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
         });
         for (int i = 0, j = dataSize-1; i<dataSize; i++,j--) {
-            series.appendData(new DataPoint(i,Integer.parseInt(mInfo.get(j).getRate())),true,1000);
+            //series.appendData(new DataPoint(i,Integer.parseInt(mInfo.get(j).getRate())),true,1000);
+            series.appendData(new DataPoint(StringToDate(mInfo.get(j).getTime()),Integer.parseInt(mInfo.get(j).getRate())),true,1000);
+            graph.refreshDrawableState();
         }
 
         graph.addSeries(series);
+
+
+        graph.getViewport().setScalable(true);
+        graph.getViewport().setScrollable(true);
+
+
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(100);
+
+
+
+        // set date label formatter
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(GraphActivity.this));
+
+        if (dataSize == 1) {
+            graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 4 because of the space
+        }
+        else if(dataSize == 2){
+            graph.getGridLabelRenderer().setNumHorizontalLabels(2); // only 4 because of the space
+        }
+        else {
+            graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
+        }
+// set manual x bounds to have nice steps
+  /*      graph.getViewport().setMinX(d1.getTime());
+        graph.getViewport().setMaxX(d3.getTime());
+        graph.getViewport().setXAxisBoundsManual(true); */
 
     }
     public void onBackPressed() {
@@ -52,21 +85,16 @@ public class GraphActivity extends Activity {
     }
 
     public Date StringToDate(String dateString) {
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa");
-        final String NEW_FORMAT = "MM-dd-yyyy";
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM d, yyyy hh:mm:ss aa");
 
         try {
 
             Date date1 = formatter.parse(dateString);
-            formatter.applyPattern(NEW_FORMAT);
-            String newDateString = formatter.format(date1);
-            Date date2 = formatter.parse(newDateString);
-            return date2;
+            return date1;
 
         } catch (ParseException e) {
             e.printStackTrace();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-            Date date = new Date();
+            Date date = new Date(1);
             return date; //NotSureAboutThis
         }
     }

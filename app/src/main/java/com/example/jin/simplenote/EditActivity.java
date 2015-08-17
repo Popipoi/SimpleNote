@@ -48,6 +48,7 @@ public class EditActivity extends ActionBarActivity {
                 intent1.putExtra("edit1",editText1.getText().toString());
                 intent1.putExtra("edit2",intent.getStringExtra("edit2"));
                 intent1.putExtra("edit3",rating);
+                intent1.putExtra("edit4",intent.getIntExtra("edit4",0));
                 setResult(RESULT_OK, intent1);
                 EditActivity.this.finish();
             }
@@ -59,6 +60,7 @@ public class EditActivity extends ActionBarActivity {
                 intent2.putExtra("edit1",intent.getStringExtra("edit1"));
                 intent2.putExtra("edit2",intent.getStringExtra("edit2"));
                 intent2.putExtra("edit3",intent.getStringExtra("edit3"));
+                intent2.putExtra("edit4",intent.getIntExtra("edit4",0));
                 setResult(RESULT_OK,intent2);
                 EditActivity.this.finish();
             }
