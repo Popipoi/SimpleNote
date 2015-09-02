@@ -3,7 +3,6 @@ package com.example.jin.simplenote;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
@@ -22,8 +21,6 @@ public class GraphActivity extends Activity {
     private DBAdapter mDb;
     private ArrayList<Info> mInfo;
 
-    //I do not think we need ArrayAdapter - Jin
-    private ArrayAdapter<Info> mAdapter;
 
     Intent intent;
     public void onCreate(Bundle savedInstanceState) {
@@ -40,16 +37,36 @@ public class GraphActivity extends Activity {
 
 
 
-        //Plot Points
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-        });
-        for (int i = 0, j = dataSize-1; i<dataSize; i++,j--) {
-            //series.appendData(new DataPoint(i,Integer.parseInt(mInfo.get(j).getRate())),true,1000);
-            series.appendData(new DataPoint(StringToDate(mInfo.get(j).getTime()),Integer.parseInt(mInfo.get(j).getRate())),true,1000);
-            graph.refreshDrawableState();
+
+
+        if(dataSize != 0) {
+            //Get initial data, reduce it, and use it as initial data
+            Date d = StringToDate(mInfo.get(dataSize - 1).getTime());
+            d.setMinutes(d.getMinutes() - 3);
+
+            //Plot Points
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                    //Adding An Initial Data Point
+                    //Because GraphView API breaks when there is only one or difference between datasets are too small
+                    new DataPoint(d, 0)
+            });
+
+            for (int i = 0, j = dataSize-1; i<dataSize; i++,j--) {
+                //series.appendData(new DataPoint(i,Integer.parseInt(mInfo.get(j).getRate())),true,1000);
+                series.appendData(new DataPoint(StringToDate(mInfo.get(j).getTime()),Integer.parseInt(mInfo.get(j).getRate())),true,100000);
+                graph.refreshDrawableState();
+            }
+
+            graph.addSeries(series);
+        }
+        else
+        {
+            //Plot Empty
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+            });
+            graph.addSeries(series);
         }
 
-        graph.addSeries(series);
 
 
         graph.getViewport().setScalable(true);
@@ -62,18 +79,13 @@ public class GraphActivity extends Activity {
 
 
 
+
+
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(GraphActivity.this));
 
-        if (dataSize == 1) {
-            graph.getGridLabelRenderer().setNumHorizontalLabels(1); // only 4 because of the space
-        }
-        else if(dataSize == 2){
-            graph.getGridLabelRenderer().setNumHorizontalLabels(2); // only 4 because of the space
-        }
-        else {
-            graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
-        }
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
+
 // set manual x bounds to have nice steps
   /*      graph.getViewport().setMinX(d1.getTime());
         graph.getViewport().setMaxX(d3.getTime());
